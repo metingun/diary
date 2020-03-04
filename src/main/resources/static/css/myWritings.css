@@ -1,0 +1,111 @@
+.container {
+  width: 70vw;
+  margin: -65px auto;
+}
+
+.tableColumn{
+  max-width: 40px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+h1 {
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+  border-bottom: 1px #40361E solid;
+  line-height: 1;
+  font-weight: normal;
+  color: #40361E;
+}
+.tableBody{
+  height: 350px;
+  border: solid;
+}
+
+tbody td, thead th {
+  width: 31%;  /* Optional */
+}
+
+.tableHead{
+  margin-bottom: 0.5%;
+  box-shadow: 0px 2px 5px #000;
+
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table th,
+table td {
+  padding: 20px 20px;
+  text-align: left;
+}
+thead, tbody { display: block; }
+
+tbody {
+  overflow-y: auto;    /* Trigger vertical scroll    */
+  overflow-x: hidden;  /* Hide the horizontal scroll */
+}
+table th {
+  padding: 12px 83px;
+  background-color: #000000;
+  position: relative;
+  cursor: pointer;
+  color: #f2fbfa;
+}
+table th:after {
+  content: "";
+  display: none;
+  width: 0;
+  height: 0;
+  margin-top: -5px;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+}
+table th.asc:after {
+  display: block;
+  border-style: solid;
+  border-width: 0 5px 10px 5px;
+  border-color: transparent transparent #E2E2E2 transparent;
+}
+
+table th.desc:after {
+  display: block;
+  border-style: solid;
+  border-width: 10px 5px 0 5px;
+  border-color: #E2E2E2 transparent transparent transparent;
+}
+
+table tr:nth-child(odd) td {
+  background-color: #efeeee;
+}
+.up,
+.down{
+  position: relative;
+}
+.up:before,
+.down:before{
+  content:"";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  top:5px;
+  margin-left:5px;
+}
+.up:before{
+  border-bottom: 5px solid black;
+}
+.down:before{
+  border-top: 5px solid #000;
+}
+.filter-table{
+  padding-bottom: 30px;
+}
+.filter-table input{
+  width: 100%;
+  padding: 15px;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png"
+          rel="apple-touch-icon"
+          type="image/png"/>
+    <meta content="CodePen" name="apple-mobile-web-app-title">
+    <link href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico"
+          rel="shortcut icon"
+          type="image/x-icon"/>
+    <link color="#111"
+          href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
+          rel="mask-icon"
+          type=""/>
+    <title>My Diaries</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet">
+    <link href="css/diaryWrite.css" rel="stylesheet">
+    <link href="css/myWritings.css" rel="stylesheet">
+    <script src='js/diaryWrite.js'></script>
+    <script src='js/myWritings.js'></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet'>
+    <script>
+        window.console = window.console || function (t) {
+        };
+    </script>
+    <script>
+        if (document.location.search.match(/type=embed/gi)) {
+            window.parent.postMessage("resize", "*");
+        }
+    </script>
+</head>
+<body translate="no">
+<div id="paper-back">
+    <nav>
+        <div class="close"></div>
+        <a href="homePage.html">Home Page</a>
+        <a href="diaryWrite.html">Create New Diary</a>
+        <a href="#">View All Writing</a>
+        <a href="#">Last Writing</a>
+        <a href="myStatistics.html">My Statistics</a>
+    </nav>
+</div>
+<div id="paper-window">
+    <div id="paper-front">
+        <div class="hamburger"><span></span></div>
+        <div id="container">
+            <section>
+                <div id="result-iframe-wrap" role="main">
+                    <div class="iframe" id="result">
+                        <div class="container" ng-app="sortTable" ng-controller="mainCtrl as main">
+                            <h1>{{ main.title }}</h1>
+                            <div class="filter-table">
+                                <input ng-model="searchPerson" placeholder="Search table" type="text"/>
+                            </div>
+                            <table>
+                                <thead class="tableHead">
+                                <tr>
+                                    <th ng-click="main.changeSortType('Date ')">Date
+                                        <span ng-class="{'down' : main.isOrderedReverse(), 'up': !main.isOrderedReverse()}"
+                                              ng-show="main.isSortType('Date') "></span>
+                                    </th>
+                                    <th ng-click="main.changeSortType('Feeling')">Feeling
+                                        <span ng-class="{'down' : main.isOrderedReverse(), 'up': !main.isOrderedReverse()}"
+                                              ng-show="main.isSortType('Feeling') "></span>
+                                    </th>
+                                    <th ng-click="main.changeSortType('Title')">Title
+                                        <span ng-class="{'down' : main.isOrderedReverse(), 'up': !main.isOrderedReverse()}"
+                                              ng-show="main.isSortType('Title') "></span>
+                                    </th>
+                                    <th ng-click="main.changeSortType('Diary')">Diary
+                                        <span ng-class="{'down' : main.isOrderedReverse(), 'up': !main.isOrderedReverse()}"
+                                              ng-show="main.isSortType('Diary') "></span>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody class="tableBody">
+                                <tr ng-repeat="person in main.persons | filter: searchPerson | orderBy: main.orderType : main.orderReverse">
+                                    <td>{{ person.date }}</td>
+                                    <td>{{ person.feeling }}</td>
+                                    <td class="tableColumn">{{ person.title }}</td>
+                                    <td><button type="button" class="btn btn-primary">Detaylar</button></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <section></section>
+        </div>
+    </div>
+</div>
+<script
+        src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-30d18ea41045577cdb11c797602d08e0b9c2fa407c8b81058b1c422053ad8041.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>
+
+<script id="rendered-js">
+    paperMenu().init();
+</script>
+</body>
+</html>

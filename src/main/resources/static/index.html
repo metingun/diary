@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content='width=device-width, initial-scale=1' name='viewport'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="css/index.css" rel="stylesheet">
+
+  <title>Panda Diary</title>
+  <link rel = "icon" href ="image/pandaIcon.png" type = "image/x-icon">
+  <script>
+    if (document.location.search.match(/type=embed/gi)) {
+      window.parent.postMessage("resize", "*");
+    }
+  </script>
+</head>
+
+<body class="">
+<div id="bodyLogin">
+<div class="modal fade myModal" id="myCreateAccountModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Create New Account</h4>
+      </div>
+      <div class="modal-body">
+        <div class="createAccountForm">
+          <div class="form-group">
+            <input id="usernameCreateAccount" required="required" class="form-control" />
+            <label class="form-label">Username</label>
+          </div>
+          <div class="form-group">
+            <input id="nameCreateAccount" required="required" class="form-control" />
+            <label class="form-label">Your Name</label>
+          </div>
+          <div class="form-group">
+            <input id="passwordCreateAccount" type="password" required="required" class="form-control"/>
+            <label class="form-label">Password</label>
+          </div>
+          <div class="form-group">
+            <input id="passwordAgain" type="password" required="required" class="form-control"/>
+            <label class="form-label">Password Again</label>
+          </div>
+          <div class="form-group">
+            <input id="birthDay" type="text" required="required" class="form-control"/>
+            <label class="form-label">Birth Date (dd/MM/yyyy)</label>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btnChangePasswordModal" onclick="createAccount();">Create Account</button><br/>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="modal fade myModal" id="myChangePasswordModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Change Password</h4>
+      </div>
+      <div class="modal-body">
+        <div class="changePasswordForm">
+          <div class="form-group">
+            <input id="usernameChangePassword" required="required" class="form-control" />
+            <label class="form-label">Username</label>
+          </div>
+          <div class="form-group">
+            <input id="passwordChange" type="password" required="required" class="form-control"/>
+            <label class="form-label">Old Password</label>
+          </div>
+          <div class="form-group">
+            <input id="newPassword" type="password" required="required" class="form-control"/>
+            <label class="form-label">New Password</label>
+          </div>
+          <div class="form-group">
+            <input id="newPasswordAgain" type="password" required="required" class="form-control"/>
+            <label class="form-label">New Password</label>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btnChangePasswordModal" onclick="changePassword();">Change Password</button><br/>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="panda">
+  <div class="ear"></div>
+  <div class="face">
+    <div class="eye-shade"></div>
+    <div class="eye-white">
+      <div class="eye-ball"></div>
+    </div>
+    <div class="eye-shade rgt"></div>
+    <div class="eye-white rgt">
+      <div class="eye-ball"></div>
+    </div>
+    <div class="nose"></div>
+    <div class="mouth"></div>
+  </div>
+  <div class="body"> </div>
+  <div class="foot">
+    <div class="finger"></div>
+  </div>
+  <div class="foot rgt">
+    <div class="finger"></div>
+  </div>
+</div>
+<div id="form">
+  <div class="hand"></div>
+  <div class="hand rgt"></div>
+  <h1>Panda Diary</h1>
+  <div class="form-group">
+    <input id="username" required="required" class="form-control" />
+    <label class="form-label" style="font-family: 'Dancing Script', cursive">Username</label>
+  </div>
+  <div class="form-group">
+    <input id="password" type="password" required="required" class="form-control"/>
+    <label class="form-label">Password</label>
+    <p class="alert"><b>Heyy!! Who are you?</b></p>
+    <button class="btn" onclick="login()">Login</button><br/>
+    <button type="button" class="btnChangePassword" data-toggle="modal" data-target="#myChangePasswordModal">Change Password</button><br/>
+    <button type="button" class="btnCreateAccount" data-toggle="modal" data-target="#myCreateAccountModal">Create New Account</button>
+  </div>
+</div>
+
+<link
+    href="https://static.codepen.io/assets/fullpage/fullpage-5685e76af3f282c94e211da3f3eb04396287d49fae7709088060651307b9d7a4.css"
+    media="screen"
+    rel="stylesheet"/>
+<link href='https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic'
+      rel='stylesheet'>
+<link
+    href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png"
+    rel="apple-touch-icon"
+    type="image/png"/>
+<link
+    href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico"
+    rel="shortcut icon"
+    type="image/x-icon"/>
+<link color="#111"
+      href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
+      rel="mask-icon"
+      type=""/>
+<script
+    src='https://static.codepen.io/assets/common/stopExecutionOnTimeout-30d18ea41045577cdb11c797602d08e0b9c2fa407c8b81058b1c422053ad8041.js'></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="js/index.js"></script>
+<script src="js/userInfo.js"></script>
+
+</div>
+</body>
+</html>

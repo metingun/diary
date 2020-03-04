@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+  <meta name="apple-mobile-web-app-title" content="CodePen">
+  <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+  <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+  <title>CodePen - ng sort filter table</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font: 14px/18px Tahoma, Arial, sans-serif;
+      background: wheat;
+    }
+
+    .container {
+      width: 70vw;
+      margin: 30px auto;
+    }
+
+    h1 {
+      padding-bottom: 20px;
+      margin-bottom: 40px;
+      border-bottom: 1px #40361E solid;
+      line-height: 1;
+      font-weight: normal;
+      color: #40361E;
+    }
+    .tableBody{
+      border: double;
+      height: 300px;
+    }
+    .tableHead{
+      margin-bottom: 3%;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table th,
+    table td {
+      padding: 20px 20px;
+      text-align: left;
+    }
+
+    table th {
+      padding: 25px 20px;
+      background-color: #f25a29;
+      position: relative;
+      cursor: pointer;
+      color: #f2fbfa;
+    }
+    table th:after {
+      content: "";
+      display: none;
+      width: 0;
+      height: 0;
+      margin-top: -5px;
+      position: absolute;
+      top: 50%;
+      right: 20px;
+    }
+    table th.asc:after {
+      display: block;
+      border-style: solid;
+      border-width: 0 5px 10px 5px;
+      border-color: transparent transparent #E2E2E2 transparent;
+    }
+
+    table th.desc:after {
+      display: block;
+      border-style: solid;
+      border-width: 10px 5px 0 5px;
+      border-color: #E2E2E2 transparent transparent transparent;
+    }
+
+    table tr:nth-child(odd) td {
+      background-color: #efeeee;
+    }
+    .up,
+    .down{
+      position: relative;
+    }
+    .up:before,
+    .down:before{
+      content:"";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      top:5px;
+      margin-left:5px;
+    }
+    .up:before{
+      border-bottom: 5px solid black;
+    }
+    .down:before{
+      border-top: 5px solid #000;
+    }
+    .filter-table{
+      padding-bottom: 30px;
+    }
+    .filter-table input{
+      width: 100%;
+      padding: 15px;
+    }
+  </style>
+  <script>
+    window.console = window.console || function(t) {};
+  </script>
+  <script>
+    if (document.location.search.match(/type=embed/gi)) {
+      window.parent.postMessage("resize", "*");
+    }
+  </script>
+</head>
+<body translate="no">
+<div ng-app="sortTable" ng-controller="mainCtrl as main" class="container">
+  <h1>{{ main.title }}</h1>
+  <div class="filter-table">
+    <input type="text" placeholder="Search table" ng-model="searchPerson" />
+  </div>
+  <table>
+    <thead class="tableHead">
+    <tr>
+      <th ng-click="main.changeSortType('Keywords ')">Keywords
+        <span ng-show="main.isSortType('Keywords') " ng-class="{'down' : main.isOrderedReverse(), 'up': !main.isOrderedReverse()}"></span>
+      </th>
+      <th ng-click="main.changeSortType('Date')">Date
+        <span ng-show="main.isSortType('Date') "
+              ng-class="{'down' : main.isOrderedReverse(), 'up': !main.isOrderedReverse()}"></span></th>
+      <th ng-click="main.changeSortType('Emotion')">Emotion
+        <span ng-show="main.isSortType('Emotion') " ng-class="{'down' : main.isOrderedReverse(), 'up': !main.isOrderedReverse()}"></span></th>
+      <th ng-click="main.changeSortType('Read')">Read
+        <span ng-show="main.isSortType('Read') " ng-class="{'down' : main.isOrderedReverse(), 'up': !main.isOrderedReverse()}"></span></th>
+    </tr>
+    </thead>
+    <tbody class="tableBody">
+    <tr ng-repeat="person in main.persons | filter: searchPerson | orderBy: main.orderType : main.orderReverse">
+      <td>{{ person.name }}</td>
+      <td>{{ person.surname }}</td>
+      <td>{{ person.age }}</td>
+      <td>{{ person.id }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-30d18ea41045577cdb11c797602d08e0b9c2fa407c8b81058b1c422053ad8041.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>
+<script id="rendered-js">
+  (function () {
+
+    angular.module('sortTable', []).
+    controller('mainCtrl', function () {
+      var main = this;
+
+      main.title = "My Writings";
+
+      main.persons =
+          [
+            {
+              name: "Joe",
+              surname: "Allen",
+              age: 33,
+              id: 1
+            },
+            {
+              name: "Alan",
+              surname: "Kowalsky",
+              age: 63,
+              id: 2
+            },
+            {
+              name: "Victor",
+              surname: "Scendell",
+              age: 15,
+              id: 3
+            },
+            {
+              name: "Jeniffer",
+              surname: "Lescott",
+              age: 44,
+              id: 4
+            },
+            {
+              name: "Paul",
+              surname: "Finley",
+              age: 70,
+              id: 5
+            },
+            {
+              name: "John",
+              surname: "Batshuai",
+              age: 23,
+              id: 6
+            }
+            , {
+            name: "Alan",
+            surname: "Kowalsky",
+            age: 63,
+            id: 2
+          },
+            {
+              name: "Victor",
+              surname: "Scendell",
+              age: 15,
+              id: 3
+            },
+            {
+              name: "Jeniffer",
+              surname: "Lescott",
+              age: 44,
+              id: 4
+            },
+            {
+              name: "Paul",
+              surname: "Finley",
+              age: 70,
+              id: 5
+            },
+            {
+              name: "John",
+              surname: "Batshuai",
+              age: 23,
+              id: 6
+            }];
+
+      main.orderType = 'id';
+      main.orderReverse = false;
+
+      main.changeSortType = function (orderType) {
+        if (main.orderType == orderType) {
+          main.orderReverse = !main.orderReverse;
+        } else {
+          main.orderType = orderType;
+        }
+      };
+
+      main.isSortType = function (orderType) {
+        return main.orderType == orderType;
+      };
+
+      main.isOrderedReverse = function () {
+        return !main.orderReverse;
+      };
+    });
+
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" rel="apple-touch-icon"
+        type="image/png"/>
+  <meta content="CodePen" name="apple-mobile-web-app-title">
+  <link href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" rel="shortcut icon"
+        type="image/x-icon"/>
+  <link color="#111" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
+        rel="mask-icon"
+        type=""/>
+  <link href="css/myStatistics.css" rel="stylesheet">
+  <title>My Statistics</title>
+  <script>
+    window.console = window.console || function (t) {
+    };
+  </script>
+  <script>
+    if (document.location.search.match(/type=embed/gi)) {
+      window.parent.postMessage("resize", "*");
+    }
+  </script>
+</head>
+<body translate="no">
+<body>
+<div class="main-container">
+
+  <header class="block">
+    <ul class="header-menu horizontal-list">
+      <li>
+        <a class="header-menu-tab" href="#2"><span class="icon fontawesome-user scnd-font-color-head"></span>Account</a>
+      </li>
+      <li>
+        <a class="header-menu-tab" href="#3"><span
+            class="icon fontawesome-envelope scnd-font-color-head"></span>Messages
+        </a>
+        <a class="header-menu-number" href="#4">5</a>
+      </li>
+      <li>
+        <a class="header-menu-tab" href="#1"><span class="icon entypo-cog scnd-font-color-head"></span>Settings</a>
+      </li>
+    </ul>
+    <div class="profile-menu">
+      <p>Me <a href="#26"><span class="entypo-down-open scnd-font-color"></span></a></p>
+      <div class="profile-picture small-profile-picture">
+        <img alt="Anne Hathaway picture"
+             src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Anne_Hathaway_Face.jpg"
+             width="40px">
+      </div>
+    </div>
+  </header>
+  <div class="bottomBody">
+    <div class="middle-container container-profile">
+      <div class="profile block">
+        <a class="add-button" href="#28"><span class="icon entypo-plus scnd-font-color"></span></a>
+        <div class="profile-picture big-profile-picture clear">
+          <img alt="Anne Hathaway picture"
+               src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Anne_Hathaway_Face.jpg"
+               width="150px">
+        </div>
+        <h1 class="user-name">Anne Hathaway</h1>
+        <div class="profile-description">
+          <p class="scnd-font-color"></p>
+        </div>
+        <ul class="profile-options horizontal-list">
+          <li><a class="comments" href="#40"><p><span class="icon fontawesome-comment-alt scnd-font-color"></span>23</p>
+          </a></li>
+          <li><a class="views" href="#41"><p><span class="icon fontawesome-eye-open scnd-font-color"></span>841</p></a>
+          </li>
+          <li><a class="likes" href="#42"><p><span class="icon fontawesome-heart-empty scnd-font-color"></span>49</p>
+          </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="left-container container">
+      <div class="donut-chart-block block">
+        <h2 class="titular">MONTHLY EMOTION STATS</h2>
+        <div class="donut-chart">
+
+          <div class="recorte" id="porcion1">
+            <div class="quesito ios" data-rel="21"></div>
+          </div>
+          <div class="recorte" id="porcion2">
+            <div class="quesito mac" data-rel="39"></div>
+          </div>
+          <div class="recorte" id="porcion3">
+            <div class="quesito win" data-rel="31"></div>
+          </div>
+          <div class="recorte" id="porcionFin">
+            <div class="quesito linux" data-rel="9"></div>
+          </div>
+
+          <p class="center-date">JUNE<br><span class="scnd-font-color-donut">2019</span></p>
+        </div>
+        <ul class="os-percentages horizontal-list">
+          <li id="leftRate1">
+            <p class="ios os scnd-font-color-donut">21<sup>%</sup></p>
+            <p class="os-percentage">VH</p>
+          </li>
+          <li>
+            <p class="mac os scnd-font-color-donut">48<sup>%</sup></p>
+            <p class="os-percentage">H</p>
+          </li>
+          <li>
+            <p class="linux os scnd-font-color-donut">9<sup>%</sup></p>
+            <p class="os-percentage">N</p>
+          </li>
+          <li>
+            <p class="win os scnd-font-color-donut">32<sup>%</sup></p>
+            <p class="os-percentage">S</p>
+          </li>
+          <li id="rightRate1">
+            <p class="win os scnd-font-color-donut">32<sup>%</sup></p>
+            <p class="os-percentage">VS</p>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="left-container container">
+      <div class="donut-chart-block block">
+        <h2 class="titular">ANNUAL EMOTION STATS</h2>
+        <div class="donut-chart">
+
+          <div class="recorte" id="porcion5">
+            <div class="quesito ios" data-rel="21"></div>
+          </div>
+          <div class="recorte" id="porcion6">
+            <div class="quesito mac" data-rel="39"></div>
+          </div>
+          <div class="recorte" id="porcion7">
+            <div class="quesito win" data-rel="31"></div>
+          </div>
+          <div class="recorte" id="porcion8">
+            <div class="quesito linux" data-rel="9"></div>
+          </div>
+
+          <p class="center-date">JUNE<br><span class="scnd-font-color-donut">2019</span></p>
+        </div>
+        <ul class="os-percentages horizontal-list">
+          <li id="leftRate">
+            <p class="ios os scnd-font-color-donut">21<sup>%</sup></p>
+            <p class="os-percentage">VH</p>
+          </li>
+          <li>
+            <p class="mac os scnd-font-color-donut">48<sup>%</sup></p>
+            <p class="os-percentage">H</p>
+          </li>
+          <li>
+            <p class="linux os scnd-font-color-donut">9<sup>%</sup></p>
+            <p class="os-percentage">N</p>
+          </li>
+          <li>
+            <p class="win os scnd-font-color-donut">32<sup>%</sup></p>
+            <p class="os-percentage">S</p>
+          </li>
+          <li id="rightRate">
+            <p class="win os scnd-font-color-donut">32<sup>%</sup></p>
+            <p class="os-percentage">VS</p>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</body>
+</body>
+</html>
